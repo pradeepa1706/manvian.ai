@@ -2,585 +2,1243 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Manufacturing Webinar | manvian.ai</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manvian Groups | AI in Manufacturing</title>
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            color: #333;
-            line-height: 1.6;
-        }
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-        header {
-            background-color: white;
-            padding: 15px 7%;
-            border-bottom: 1px solid #ddd;
-        }
+  <style>
+    :root {
+      --navy: #102A43;
+      --orange: #F47732;
+      --white: #FFFFFF;
+      --light: #EAF0F5;
+      --text: #263746;
+      --muted: #64748B;
+    }
 
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        .logo {
-            color: #173b60;
-            font-size: 25px;
-            font-weight: bold;
-        }
+    html {
+      scroll-behavior: smooth;
+    }
 
-        .logo span {
-            color: #159b9b;
-        }
+    body {
+      font-family: 'Inter', Arial, sans-serif;
+      color: var(--text);
+      line-height: 1.6;
+      background: var(--white);
+    }
 
-        nav a {
-            color: #333;
-            text-decoration: none;
-            margin-left: 22px;
-            font-size: 15px;
-        }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-        nav a:hover {
-            color: #159b9b;
-        }
+    button, input, select, textarea {
+      font-family: 'Inter', Arial, sans-serif;
+    }
 
-        .hero {
-            background-color: #edf3f7;
-            padding: 55px 7%;
-            display: flex;
-            align-items: center;
-            gap: 35px;
-        }
+    .container {
+      width: 88%;
+      max-width: 1150px;
+      margin: auto;
+    }
 
-        .hero-content {
-            width: 55%;
-        }
+    /* NAVBAR */
 
-        .hero h1 {
-            color: #173b60;
-            font-size: 38px;
-            line-height: 1.3;
-        }
+    header {
+      background: var(--white);
+      padding: 18px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 12px rgba(16,42,67,0.06);
+    }
 
-        .hero p {
-            color: #555;
-            margin-bottom: 25px;
-        }
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-        .hero img {
-            width: 45%;
-            height: 300px;
-            object-fit: cover;
-        }
+    .logo {
+      font-size: 23px;
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -1px;
+    }
 
-        .button {
-            display: inline-block;
-            background-color: #159b9b;
-            color: white;
-            padding: 11px 23px;
-            text-decoration: none;
-            border-radius: 3px;
-        }
+    .logo span {
+      color: var(--orange);
+    }
 
-        .event-details {
-            display: flex;
-            justify-content: space-around;
-            background-color: #173b60;
-            color: white;
-            padding: 22px 7%;
-            text-align: center;
-        }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+      font-size: 14px;
+      font-weight: 500;
+    }
 
-        .event-details p {
-            margin: 4px;
-            color: #dce6ef;
-        }
+    .nav-links a:hover {
+      color: var(--orange);
+    }
 
-        section {
-            padding: 50px 7%;
-        }
+    .nav-button {
+      background: var(--orange);
+      color: white !important;
+      padding: 11px 19px;
+      border-radius: 5px;
+    }
 
-        .section-title {
-            text-align: center;
-            margin-bottom: 30px;
-        }
+    .menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 27px;
+      color: var(--navy);
+      cursor: pointer;
+    }
 
-        .section-title h2 {
-            color: #173b60;
-            font-size: 28px;
-            margin-bottom: 8px;
-        }
+    /* HERO */
 
-        .section-title p {
-            color: #666;
-        }
+    .hero {
+      background: var(--navy);
+      color: white;
+      text-align: center;
+      padding: 100px 20px 85px;
+    }
 
-        .about p {
-            max-width: 850px;
-            margin: auto;
-            text-align: center;
-        }
+    .hero-label {
+      color: #F9A36F;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      margin-bottom: 24px;
+    }
 
-        .topics {
-            background-color: #f5f7f9;
-        }
+    .hero h1 {
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -1.5px;
+      max-width: 850px;
+      margin: auto;
+    }
 
-        .topic-container {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 18px;
-        }
+    .hero h1 span {
+      color: var(--orange);
+    }
 
-        .topic-box {
-            background-color: white;
-            border: 1px solid #ddd;
-            padding: 22px;
-        }
+    .hero-description {
+      max-width: 650px;
+      margin: 23px auto 32px;
+      color: #D5E0EA;
+      font-size: 16px;
+    }
 
-        .topic-box h3 {
-            color: #173b60;
-            margin-top: 0;
-        }
+    .primary-btn {
+      display: inline-block;
+      background: var(--orange);
+      color: white;
+      padding: 14px 27px;
+      border-radius: 5px;
+      font-weight: 600;
+      font-size: 14px;
+      transition: 0.3s;
+    }
 
-        .topic-box p {
-            color: #666;
-            font-size: 14px;
-        }
+    .primary-btn:hover {
+      background: #E86620;
+      transform: translateY(-2px);
+    }
 
-        .why-ai {
-            display: flex;
-            align-items: center;
-            gap: 35px;
-        }
+    .event-details {
+      display: flex;
+      justify-content: center;
+      gap: 70px;
+      margin-top: 60px;
+      flex-wrap: wrap;
+    }
 
-        .why-ai img {
-            width: 45%;
-            height: 280px;
-            object-fit: cover;
-        }
+    .event-detail h4 {
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      color: #F9A36F;
+      margin-bottom: 8px;
+    }
 
-        .why-ai h2 {
-            color: #173b60;
-        }
+    .event-detail p {
+      font-size: 15px;
+      font-weight: 600;
+    }
 
-        .why-ai ul {
-            padding-left: 20px;
-        }
+    .hero-bottom {
+      margin-top: 55px;
+      color: #AFC1D1;
+      font-size: 11px;
+      letter-spacing: 2px;
+      word-spacing: 12px;
+    }
 
-        .why-ai li {
-            margin-bottom: 10px;
-        }
+    /* COMMON SECTIONS */
 
-        .agenda {
-            background-color: #f5f7f9;
-        }
+    section {
+      padding: 85px 0;
+    }
 
-        .agenda-row {
-            max-width: 750px;
-            margin: auto;
-            display: flex;
-            padding: 15px 5px;
-            border-bottom: 1px solid #ddd;
-            gap: 25px;
-        }
+    .section-heading {
+      text-align: center;
+      margin-bottom: 45px;
+    }
 
-        .agenda-row strong {
-            color: #159b9b;
-            min-width: 150px;
-        }
+    .section-heading .small-title {
+      color: var(--orange);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+    }
 
-        .register {
-            background-color: #edf3f7;
-        }
+    .section-heading h2 {
+      font-size: clamp(27px, 4vw, 36px);
+      color: var(--navy);
+      font-weight: 700;
+      letter-spacing: -0.8px;
+    }
 
-        .form-box {
-            background-color: white;
-            max-width: 500px;
-            margin: auto;
-            padding: 30px;
-            border: 1px solid #ddd;
-        }
+    .section-heading p {
+      color: var(--muted);
+      max-width: 650px;
+      margin: 12px auto 0;
+      font-size: 14px;
+    }
 
-        .form-box h2 {
-            text-align: center;
-            color: #173b60;
-            margin-top: 0;
-        }
+    /* ABOUT */
 
-        .form-box label {
-            display: block;
-            margin: 12px 0 5px;
-        }
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 55px;
+      align-items: center;
+    }
 
-        .form-box input,
-        .form-box select {
-            width: 100%;
-            padding: 11px;
-            border: 1px solid #ccc;
-            box-sizing: border-box;
-        }
+    .about-image img {
+      width: 100%;
+      height: 380px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
 
-        .form-box button {
-            width: 100%;
-            padding: 12px;
-            margin-top: 20px;
-            background-color: #173b60;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
+    .about-content .small-title {
+      color: var(--orange);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
 
-        footer {
-            background-color: #173b60;
-            color: white;
-            text-align: center;
-            padding: 20px;
-        }
+    .about-content h2 {
+      color: var(--navy);
+      font-size: 33px;
+      line-height: 1.3;
+      margin: 14px 0 18px;
+    }
 
-.faq {
-    background-color: #f4f7fa;
-    padding: 60px 7%;
-}
+    .about-content p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
 
-.faq-container {
-    max-width: 800px;
-    margin: 30px auto 0;
-}
+    .about-points {
+      list-style: none;
+      margin-top: 20px;
+    }
 
-.faq details {
-    background-color: white;
-    margin-bottom: 12px;
-    padding: 18px 22px;
-    border: 1px solid #dce3ea;
-    border-radius: 4px;
-}
+    .about-points li {
+      margin-bottom: 12px;
+      font-size: 14px;
+      font-weight: 600;
+    }
 
-.faq summary {
-    font-size: 16px;
-    font-weight: bold;
-    color: #173b60;
-    cursor: pointer;
-}
+    .about-points li span {
+      color: var(--orange);
+      margin-right: 9px;
+    }
 
-.faq details p {
-    color: #555;
-    line-height: 1.6;
-    margin-top: 15px;
-}
+    /* TOPICS */
 
+    .topics {
+      background: var(--light);
+    }
 
-        @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-                gap: 12px;
-            }
+    .topic-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
 
-            nav a {
-                margin: 0 7px;
-                font-size: 13px;
-            }
+    .topic-card {
+      background: white;
+      padding: 32px 27px;
+      border-radius: 7px;
+      border: 1px solid #E2E8F0;
+      transition: 0.3s;
+    }
 
-            .hero,
-            .why-ai {
-                flex-direction: column;
-            }
+    .topic-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--orange);
+    }
 
-            .hero-content,
-            .hero img,
-            .why-ai img {
-                width: 100%;
-            }
+    .topic-number {
+      color: var(--orange);
+      font-size: 13px;
+      font-weight: 700;
+    }
 
-            .hero h1 {
-                font-size: 30px;
-            }
+    .topic-card h3 {
+      color: var(--navy);
+      font-size: 19px;
+      margin: 17px 0 12px;
+    }
 
-            .event-details {
-                flex-direction: column;
-                gap: 15px;
-            }
+    .topic-card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
 
-            .topic-container {
-                grid-template-columns: 1fr;
-            }
+    /* BENEFITS */
 
-            .agenda-row {
-                flex-direction: column;
-                gap: 5px;
-            }
-            
-        }
-    </style>
+    .benefit-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .benefit-card {
+      padding: 25px 20px;
+      border-left: 3px solid var(--orange);
+      background: #F8FAFC;
+    }
+
+    .benefit-card h3 {
+      color: var(--navy);
+      font-size: 16px;
+      margin-bottom: 9px;
+    }
+
+    .benefit-card p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* AGENDA */
+
+    .agenda {
+      background: var(--light);
+    }
+
+    .agenda-list {
+      max-width: 750px;
+      margin: auto;
+    }
+
+    .agenda-item {
+      display: flex;
+      gap: 25px;
+      background: white;
+      padding: 22px 25px;
+      margin-bottom: 13px;
+      border-radius: 6px;
+      align-items: center;
+    }
+
+    .agenda-time {
+      color: var(--orange);
+      font-weight: 700;
+      font-size: 14px;
+      min-width: 105px;
+    }
+
+    .agenda-item h3 {
+      color: var(--navy);
+      font-size: 15px;
+    }
+
+    .agenda-item p {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 4px;
+    }
+
+    /* SPEAKER */
+
+    .speaker-box {
+      max-width: 750px;
+      margin: auto;
+      text-align: center;
+      padding: 40px;
+      background: #F8FAFC;
+      border-radius: 8px;
+      border: 1px solid #E2E8F0;
+    }
+
+    .speaker-box h3 {
+      color: var(--navy);
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .speaker-box p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* PRICING */
+
+    .pricing {
+      background: var(--navy);
+      color: white;
+      text-align: center;
+    }
+
+    .pricing .section-heading h2 {
+      color: white;
+    }
+
+    .pricing .section-heading p {
+      color: #C6D4E0;
+    }
+
+    .price-card {
+      max-width: 390px;
+      margin: auto;
+      background: white;
+      color: var(--text);
+      padding: 40px;
+      border-radius: 8px;
+    }
+
+    .price-card h3 {
+      color: var(--navy);
+      font-size: 20px;
+    }
+
+    .price {
+      color: var(--orange);
+      font-size: 45px;
+      font-weight: 800;
+      margin: 12px 0;
+    }
+
+    .price-card p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 23px;
+    }
+
+    /* REVIEWS */
+
+    .review-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .review-card {
+      padding: 27px;
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-radius: 7px;
+    }
+
+    .stars {
+      color: var(--orange);
+      letter-spacing: 3px;
+      margin-bottom: 14px;
+    }
+
+    .review-card p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+
+    .review-card h4 {
+      color: var(--navy);
+      font-size: 14px;
+    }
+
+    /* FAQ */
+
+    .faq {
+      background: var(--light);
+    }
+
+    .faq-list {
+      max-width: 780px;
+      margin: auto;
+    }
+
+    .faq-list details {
+      background: white;
+      margin-bottom: 12px;
+      padding: 19px 22px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .faq-list summary {
+      color: var(--navy);
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    .faq-list details p {
+      color: var(--muted);
+      font-size: 14px;
+      padding-top: 13px;
+    }
+
+    /* REGISTRATION */
+
+    .registration {
+      background: #F5F0FA;
+    }
+
+    .registration-wrapper {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .registration-info h2 {
+      color: var(--navy);
+      font-size: 34px;
+      line-height: 1.3;
+      margin: 12px 0 18px;
+    }
+
+    .registration-info p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 17px;
+    }
+
+    .registration-info .small-title {
+      color: var(--orange);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+
+    .registration-info ul {
+      list-style: none;
+      margin-top: 20px;
+    }
+
+    .registration-info li {
+      color: var(--navy);
+      font-size: 14px;
+      margin-bottom: 12px;
+      font-weight: 500;
+    }
+
+    .registration-info li span {
+      color: var(--orange);
+      margin-right: 9px;
+    }
+
+    .registration-form {
+      background: white;
+      padding: 35px;
+      border-radius: 8px;
+      box-shadow: 0 8px 25px rgba(16,42,67,0.07);
+    }
+
+    .registration-form h3 {
+      color: var(--navy);
+      font-size: 23px;
+      margin-bottom: 8px;
+    }
+
+    .form-description {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 23px;
+    }
+
+    .form-group {
+      margin-bottom: 17px;
+    }
+
+    .form-group label {
+      display: block;
+      color: var(--navy);
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 7px;
+    }
+
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #D7DEE7;
+      border-radius: 5px;
+      outline: none;
+      font-size: 13px;
+      background: white;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus {
+      border-color: var(--orange);
+    }
+
+    .submit-btn {
+      width: 100%;
+      background: var(--orange);
+      color: white;
+      border: none;
+      padding: 14px;
+      border-radius: 5px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .submit-btn:hover {
+      background: #E86620;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: #0B2033;
+      color: white;
+      padding: 45px 0 20px;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      flex-wrap: wrap;
+      padding-bottom: 30px;
+    }
+
+    .footer-brand h2 {
+      font-size: 23px;
+      margin-bottom: 10px;
+    }
+
+    .footer-brand span {
+      color: var(--orange);
+    }
+
+    .footer-brand p,
+    .footer-links a {
+      color: #B9C8D5;
+      font-size: 13px;
+    }
+
+    .footer-links h4 {
+      margin-bottom: 12px;
+      font-size: 14px;
+    }
+
+    .footer-links a {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .footer-links a:hover {
+      color: var(--orange);
+    }
+
+    .copyright {
+      border-top: 1px solid #294257;
+      padding-top: 18px;
+      text-align: center;
+      color: #AFC1D1;
+      font-size: 12px;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 850px) {
+      .nav-links {
+        gap: 15px;
+        font-size: 12px;
+      }
+
+      .about {
+        gap: 30px;
+      }
+
+      .benefit-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 650px) {
+      .container {
+        width: 90%;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 65px;
+        left: 0;
+        width: 100%;
+        background: white;
+        padding: 20px;
+        flex-direction: column;
+        align-items: flex-start;
+        box-shadow: 0 8px 15px rgba(0,0,0,0.08);
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .hero {
+        padding: 75px 18px 65px;
+      }
+
+      .hero-description {
+        font-size: 14px;
+      }
+
+      .event-details {
+        gap: 28px;
+        margin-top: 40px;
+      }
+
+      .hero-bottom {
+        line-height: 2.5;
+        word-spacing: 5px;
+      }
+
+      section {
+        padding: 65px 0;
+      }
+
+      .about,
+      .registration-wrapper {
+        grid-template-columns: 1fr;
+      }
+
+      .about-image img {
+        height: 270px;
+      }
+
+      .topic-grid,
+      .review-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .benefit-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .agenda-item {
+        gap: 12px;
+        padding: 18px 15px;
+      }
+
+      .agenda-time {
+        min-width: 85px;
+        font-size: 12px;
+      }
+
+      .speaker-box,
+      .registration-form {
+        padding: 25px 20px;
+      }
+
+      .footer-content {
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-    
+  <!-- NAVBAR -->
+  <header>
+    <div class="container navbar">
+      <a href="#home" class="logo">manvian<span>.ai</span></a>
 
-    <header>
-        <nav>
-            <div class="logo">manvian<span>.ai</span></div>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
 
-            <div>
-                <a href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="#topics">Topics</a>
-                <a href="#agenda">Agenda</a>
-                <a href="#register">Register</a>
-            </div>
-        </nav>
-    </header>
-
-    <div class="hero" id="home">
-
-        <div class="hero-content">
-            <h1>AI-Powered Manufacturing: Transforming Industries for the Future</h1>
-
-            <p>
-                Join us to understand how Artificial Intelligence is
-                changing the manufacturing industry. Explore smart
-                factories, automation and new industrial technologies.
-            </p>
-
-            <a href="#register" class="button">Register Now</a>
-        </div>
-
-        <img src="https://images.unsplash.com/photo-1567789884554-0b844b597180?w=1000"
-             alt="Manufacturing industry">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#topics">Topics</a></li>
+        <li><a href="#agenda">Agenda</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#register" class="nav-button">Register Now</a></li>
+      </ul>
     </div>
+  </header>
 
-    <div class="event-details">
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="container">
+      <p class="hero-label">MANVIAN GROUPS PRESENTS</p>
 
-        <div>
-            <h3>15 December 2026</h3>
-            <p>Webinar Date</p>
+      <h1>
+        Bringing <span>Artificial Intelligence</span>
+        into Manufacturing.
+      </h1>
+
+      <p class="hero-description">
+        Discover how AI is transforming modern manufacturing through
+        smarter operations, predictive insights and intelligent automation.
+      </p>
+
+      <a href="#register" class="primary-btn">Reserve Your Seat →</a>
+
+      <div class="event-details">
+        <div class="event-detail">
+          <h4>DATE</h4>
+          <p>15 December 2026</p>
         </div>
 
-        <div>
-            <h3>10:00 AM - 11:30 AM</h3>
-            <p>Time (IST)</p>
+        <div class="event-detail">
+          <h4>TIME</h4>
+          <p>10:00 AM – 11:30 AM IST</p>
         </div>
 
-        <div>
-            <h3>Online</h3>
-            <p>Event Mode</p>
+        <div class="event-detail">
+          <h4>FORMAT</h4>
+          <p>Online Webinar</p>
         </div>
+      </div>
 
+      <div class="hero-bottom">
+        INDUSTRY 4.0 · SMART TECHNOLOGY · FUTURE OF MANUFACTURING
+      </div>
     </div>
+  </section>
 
-    <section class="about" id="about">
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container about">
+      <div class="about-image">
+        <img
+          src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=900&q=85"
+          alt="Modern technology and manufacturing"
+        >
+      </div>
 
-        <div class="section-title">
-            <h2>About the Webinar</h2>
-        </div>
+      <div class="about-content">
+        <span class="small-title">ABOUT THE WEBINAR</span>
+
+        <h2>Building Smarter Manufacturing with AI</h2>
 
         <p>
-            Artificial Intelligence is becoming an important part of
-            the manufacturing industry. It helps companies improve
-            production, reduce machine downtime and maintain product
-            quality. In this webinar, we will discuss how AI is used
-            in manufacturing and how it can help industries in the future.
+          Artificial Intelligence is changing the way industries design,
+          produce and manage their operations. It helps manufacturers
+          improve productivity and make better decisions.
         </p>
 
-    </section>
+        <p>
+          This webinar introduces practical AI applications and explores
+          how intelligent technologies can support the future of manufacturing.
+        </p>
 
-    <section class="topics" id="topics">
+        <ul class="about-points">
+          <li><span>✓</span> Understand real-world AI applications</li>
+          <li><span>✓</span> Explore smart manufacturing solutions</li>
+          <li><span>✓</span> Learn about Industry 4.0 technologies</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-        <div class="section-title">
-            <h2>Topics Covered</h2>
-            <p>Learn about the latest uses of AI in manufacturing.</p>
+  <!-- TOPICS -->
+  <section class="topics" id="topics">
+    <div class="container">
+      <div class="section-heading">
+        <p class="small-title">WHAT YOU WILL EXPLORE</p>
+        <h2>Key Topics Covered</h2>
+        <p>
+          Get familiar with the technologies shaping the next generation
+          of manufacturing.
+        </p>
+      </div>
+
+      <div class="topic-grid">
+        <div class="topic-card">
+          <span class="topic-number">01 / AI TECHNOLOGY</span>
+          <h3>AI in Manufacturing</h3>
+          <p>
+            Understand how artificial intelligence supports production,
+            quality control and operational decisions.
+          </p>
         </div>
 
-        <div class="topic-container">
-
-            <div class="topic-box">
-                <h3>AI in Manufacturing</h3>
-                <p>Learn the basics of AI and its uses in industries.</p>
-            </div>
-
-            <div class="topic-box">
-                <h3>Smart Factories</h3>
-                <p>Understand how connected machines improve production.</p>
-            </div>
-
-            <div class="topic-box">
-                <h3>Industrial Automation</h3>
-                <p>Explore how automation makes manufacturing easier.</p>
-            </div>
-
-            <div class="topic-box">
-                <h3>Predictive Maintenance</h3>
-                <p>Identify machine problems before they cause breakdowns.</p>
-            </div>
-
-            <div class="topic-box">
-                <h3>Quality Inspection</h3>
-                <p>Understand how AI helps identify product defects.</p>
-            </div>
-
-            <div class="topic-box">
-                <h3>Future of Manufacturing</h3>
-                <p>Explore upcoming technologies in the manufacturing sector.</p>
-            </div>
-
+        <div class="topic-card">
+          <span class="topic-number">02 / INDUSTRY 4.0</span>
+          <h3>Smart Factory</h3>
+          <p>
+            Explore connected machines, intelligent systems and
+            automated manufacturing environments.
+          </p>
         </div>
 
-    </section>
+        <div class="topic-card">
+          <span class="topic-number">03 / MACHINE LEARNING</span>
+          <h3>Predictive Maintenance</h3>
+          <p>
+            Learn how data and AI can help identify equipment issues
+            before unexpected breakdowns happen.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <section>
+  <!-- BENEFITS -->
+  <section id="benefits">
+    <div class="container">
+      <div class="section-heading">
+        <p class="small-title">WHY ATTEND</p>
+        <h2>What You Will Gain</h2>
+        <p>
+          Practical knowledge to understand the role of AI in modern industries.
+        </p>
+      </div>
 
-        <div class="why-ai">
-
-            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1000"
-                 alt="Industrial technology">
-
-            <div>
-                <h2>Why AI in Manufacturing?</h2>
-
-                <p>
-                    AI helps industries improve their work and manage
-                    production more effectively.
-                </p>
-
-                <ul>
-                    <li>Improves production efficiency</li>
-                    <li>Reduces machine downtime</li>
-                    <li>Improves product quality</li>
-                    <li>Reduces manual work</li>
-                    <li>Supports better decisions</li>
-                </ul>
-            </div>
-
+      <div class="benefit-grid">
+        <div class="benefit-card">
+          <h3>Industry Insights</h3>
+          <p>Understand current AI trends in the manufacturing sector.</p>
         </div>
 
-    </section>
-
-    <section class="agenda" id="agenda">
-
-        <div class="section-title">
-            <h2>Webinar Agenda</h2>
-            <p>Schedule for the 90-minute session.</p>
+        <div class="benefit-card">
+          <h3>Practical Learning</h3>
+          <p>Explore how AI concepts connect with real industrial needs.</p>
         </div>
 
-        <div class="agenda-row">
-            <strong>10:00 - 10:10 AM</strong>
-            <span>Welcome and Introduction</span>
+        <div class="benefit-card">
+          <h3>Future Skills</h3>
+          <p>Discover technologies that are shaping future careers.</p>
         </div>
 
-        <div class="agenda-row">
-            <strong>10:10 - 10:30 AM</strong>
-            <span>Introduction to AI in Manufacturing</span>
+        <div class="benefit-card">
+          <h3>New Perspectives</h3>
+          <p>Learn new ways to think about production and automation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AGENDA -->
+  <section class="agenda" id="agenda">
+    <div class="container">
+      <div class="section-heading">
+        <p class="small-title">WEBINAR SCHEDULE</p>
+        <h2>Session Agenda</h2>
+        <p>A focused session covering important AI manufacturing concepts.</p>
+      </div>
+
+      <div class="agenda-list">
+        <div class="agenda-item">
+          <span class="agenda-time">10:00 AM</span>
+          <div>
+            <h3>Welcome & Introduction</h3>
+            <p>Introduction to the webinar and its objectives.</p>
+          </div>
         </div>
 
-        <div class="agenda-row">
-            <strong>10:30 - 10:55 AM</strong>
-            <span>Industrial AI Applications</span>
+        <div class="agenda-item">
+          <span class="agenda-time">10:15 AM</span>
+          <div>
+            <h3>Understanding AI in Manufacturing</h3>
+            <p>Explore the role of AI in industrial operations.</p>
+          </div>
         </div>
 
-        <div class="agenda-row">
-            <strong>10:55 - 11:15 AM</strong>
-            <span>Future Trends in Manufacturing</span>
+        <div class="agenda-item">
+          <span class="agenda-time">10:40 AM</span>
+          <div>
+            <h3>Smart Factory & Predictive Maintenance</h3>
+            <p>Discover intelligent automation and predictive solutions.</p>
+          </div>
         </div>
 
-        <div class="agenda-row">
-            <strong>11:15 - 11:30 AM</strong>
-            <span>Questions and Answers</span>
+        <div class="agenda-item">
+          <span class="agenda-time">11:10 AM</span>
+          <div>
+            <h3>Questions & Discussion</h3>
+            <p>Interact, share questions and discuss key takeaways.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPEAKER -->
+  <section id="speaker">
+    <div class="container">
+      <div class="section-heading">
+        <p class="small-title">KNOWLEDGE SHARING</p>
+        <h2>Learn From Industry Perspectives</h2>
+      </div>
+
+      <div class="speaker-box">
+        <h3>Expert Session</h3>
+        <p>
+          Join the session to explore AI applications in manufacturing
+          and gain insights into emerging industrial technologies.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing" id="pricing">
+    <div class="container">
+      <div class="section-heading">
+        <p class="small-title">JOIN THE SESSION</p>
+        <h2>Simple & Accessible</h2>
+        <p>Take part in this online learning experience.</p>
+      </div>
+
+      <div class="price-card">
+        <h3>Webinar Registration</h3>
+        <div class="price">FREE</div>
+        <p>Online access to the scheduled webinar session.</p>
+        <a href="#register" class="primary-btn">Register for Free →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section id="reviews">
+    <div class="container">
+      <div class="section-heading">
+        <p class="small-title">PARTICIPANT FEEDBACK</p>
+        <h2>What Attendees Say</h2>
+        <p>Sample feedback cards for the website design.</p>
+      </div>
+
+      <div class="review-grid">
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p>
+            "The session helped me understand how AI can support
+            manufacturing processes."
+          </p>
+          <h4>Ananya</h4>
         </div>
 
-<section class="faq">
-    <div class="section-title">
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p>
+            "A useful learning experience with interesting insights
+            into smart technology."
+          </p>
+          <h4>Pradeepa</h4>
+        </div>
+
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p>
+            "The topics gave me a better understanding of Industry 4.0
+            and automation."
+          </p>
+          <h4>Varshu</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq" id="faq">
+    <div class="container">
+      <div class="section-heading">
+        <p class="small-title">NEED TO KNOW</p>
         <h2>Frequently Asked Questions</h2>
-        <p>Find answers to common questions about the webinar.</p>
+      </div>
+
+      <div class="faq-list">
+        <details>
+          <summary>What is this webinar about?</summary>
+          <p>
+            This webinar explores how Artificial Intelligence is used
+            in manufacturing, smart factories and predictive maintenance.
+          </p>
+        </details>
+
+        <details>
+          <summary>Is this webinar conducted online?</summary>
+          <p>Yes, the session is planned as an online webinar.</p>
+        </details>
+
+        <details>
+          <summary>Do I need technical knowledge to attend?</summary>
+          <p>
+            Basic interest in technology and manufacturing is enough
+            to follow the introductory topics.
+          </p>
+        </details>
+
+        <details>
+          <summary>Is registration free?</summary>
+          <p>
+            The sample event page currently displays free registration.
+          </p>
+        </details>
+
+        <details>
+          <summary>How can I register?</summary>
+          <p>
+            Fill in the registration form on this page with your details.
+          </p>
+        </details>
+      </div>
     </div>
+  </section>
 
-    <div class="faq-container">
+  <!-- REGISTRATION -->
+  <section class="registration" id="register">
+    <div class="container registration-wrapper">
 
-        <details>
-            <summary>Who can attend this webinar?</summary>
-            <p>This webinar is suitable for manufacturing professionals, students, engineers and anyone interested in AI technology.</p>
-        </details>
+      <div class="registration-info">
+        <span class="small-title">SAVE YOUR SEAT</span>
 
-        <details>
-            <summary>Is this webinar conducted online?</summary>
-            <p>Yes, this webinar will be conducted online. Registered participants will receive joining instructions.</p>
-        </details>
+        <h2>Be Part of the Future of Manufacturing</h2>
 
-        <details>
-            <summary>Do I need prior knowledge of AI?</summary>
-            <p>No. Basic knowledge of AI is helpful, but it is not required to attend this webinar.</p>
-        </details>
+        <p>
+          Register for the webinar and explore how Artificial Intelligence
+          is creating new possibilities in modern industries.
+        </p>
 
-        <details>
-            <summary>How can I join the webinar?</summary>
-            <p>Complete the registration form. Joining details will be shared with registered participants.</p>
-        </details>
+        <ul>
+          <li><span>✓</span> Online webinar</li>
+          <li><span>✓</span> Focused learning session</li>
+          <li><span>✓</span> AI and manufacturing insights</li>
+        </ul>
+      </div>
 
-        <details>
-            <summary>Will I receive a webinar recording?</summary>
-            <p>Recording availability will be confirmed by the webinar organiser.</p>
-        </details>
+      <form class="registration-form" id="registrationForm">
+        <h3>Register Now</h3>
+        <p class="form-description">
+          Enter your details to register for the webinar.
+        </p>
 
-    </div>
-</section>
-
-
-    </section>
-    <section class="register" id="register">
-
-        <div class="form-box">
-
-            <h2>Register for the Webinar</h2>
-
-            <form id="myForm">
-
-                <label for="name">Full Name</label>
-                <input type="text" id="name" placeholder="Enter your name" required>
-
-                <label for="email">Email Address</label>
-                <input type="email" id="email" placeholder="Enter your email" required>
-
-                <label for="company">Company Name</label>
-                <input type="text" id="company" placeholder="Enter company name" required>
-
-                <label for="role">Your Role</label>
-                <select id="role" required>
-                    <option value="">Select your role</option>
-                    <option>Engineer</option>
-                    <option>Manager</option>
-                    <option>Business Owner</option>
-                    <option>Student</option>
-                    <option>Other</option>
-                </select>
-
-                <button type="submit">Submit Registration</button>
-
-            </form>
-
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" placeholder="Enter your full name" required>
         </div>
 
-    </section>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" placeholder="Enter your email" required>
+        </div>
 
-    <footer>
-        <p>© 2026 manvian.ai. All Rights Reserved.</p>
-        <p>AI-Powered Manufacturing Webinar</p>
-    </footer>
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" placeholder="Enter your phone number"
+                 pattern="[0-9]{10}" maxlength="10" required>
+        </div>
 
-    <script>
-        document.getElementById("myForm").addEventListener("submit", function(event) {
+        <div class="form-group">
+          <label for="role">Your Profession</label>
+          <select id="role" required>
+            <option value="">Select your profession</option>
+            <option>Student</option>
+            <option>Working Professional</option>
+            <option>Business Owner</option>
+            <option>Other</option>
+          </select>
+        </div>
 
-            event.preventDefault();
+        <button type="submit" class="submit-btn">Submit Registration →</button>
+      </form>
 
-            let name = document.getElementById("name").value;
+    </div>
+  </section>
 
-            alert("Thank you " + name + "! Your registration is submitted.");
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
 
-            this.reset();
+        <div class="footer-brand">
+          <h2>manvian<span>.ai</span></h2>
+          <p>
+            Exploring technology.<br>
+            Enabling smarter industries.
+          </p>
+        </div>
 
-        });
-    </script>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <a href="#about">About</a>
+          <a href="#topics">Topics</a>
+          <a href="#agenda">Agenda</a>
+          <a href="#register">Registration</a>
+        </div>
+
+        <div class="footer-links">
+          <h4>Webinar Details</h4>
+          <a href="#home">15 December 2026</a>
+          <a href="#home">10:00 AM – 11:30 AM IST</a>
+          <a href="#home">Online Webinar</a>
+        </div>
+
+      </div>
+
+      <div class="copyright">
+        © 2026 Manvian Groups. All Rights Reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+
+    menuBtn.addEventListener("click", function () {
+      navLinks.classList.toggle("active");
+    });
+
+    document.querySelectorAll(".nav-links a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        navLinks.classList.remove("active");
+      });
+    });
+
+    document.getElementById("registrationForm").addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      alert("Thank you! Your registration form has been submitted.");
+
+      this.reset();
+    });
+  </script>
 
 </body>
 </html>
