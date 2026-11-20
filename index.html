@@ -1,0 +1,586 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Manufacturing Webinar | manvian.ai</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: white;
+            padding: 15px 7%;
+            border-bottom: 1px solid #ddd;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: #173b60;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #159b9b;
+        }
+
+        nav a {
+            color: #333;
+            text-decoration: none;
+            margin-left: 22px;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #159b9b;
+        }
+
+        .hero {
+            background-color: #edf3f7;
+            padding: 55px 7%;
+            display: flex;
+            align-items: center;
+            gap: 35px;
+        }
+
+        .hero-content {
+            width: 55%;
+        }
+
+        .hero h1 {
+            color: #173b60;
+            font-size: 38px;
+            line-height: 1.3;
+        }
+
+        .hero p {
+            color: #555;
+            margin-bottom: 25px;
+        }
+
+        .hero img {
+            width: 45%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: #159b9b;
+            color: white;
+            padding: 11px 23px;
+            text-decoration: none;
+            border-radius: 3px;
+        }
+
+        .event-details {
+            display: flex;
+            justify-content: space-around;
+            background-color: #173b60;
+            color: white;
+            padding: 22px 7%;
+            text-align: center;
+        }
+
+        .event-details p {
+            margin: 4px;
+            color: #dce6ef;
+        }
+
+        section {
+            padding: 50px 7%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .section-title h2 {
+            color: #173b60;
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        .section-title p {
+            color: #666;
+        }
+
+        .about p {
+            max-width: 850px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .topics {
+            background-color: #f5f7f9;
+        }
+
+        .topic-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .topic-box {
+            background-color: white;
+            border: 1px solid #ddd;
+            padding: 22px;
+        }
+
+        .topic-box h3 {
+            color: #173b60;
+            margin-top: 0;
+        }
+
+        .topic-box p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .why-ai {
+            display: flex;
+            align-items: center;
+            gap: 35px;
+        }
+
+        .why-ai img {
+            width: 45%;
+            height: 280px;
+            object-fit: cover;
+        }
+
+        .why-ai h2 {
+            color: #173b60;
+        }
+
+        .why-ai ul {
+            padding-left: 20px;
+        }
+
+        .why-ai li {
+            margin-bottom: 10px;
+        }
+
+        .agenda {
+            background-color: #f5f7f9;
+        }
+
+        .agenda-row {
+            max-width: 750px;
+            margin: auto;
+            display: flex;
+            padding: 15px 5px;
+            border-bottom: 1px solid #ddd;
+            gap: 25px;
+        }
+
+        .agenda-row strong {
+            color: #159b9b;
+            min-width: 150px;
+        }
+
+        .register {
+            background-color: #edf3f7;
+        }
+
+        .form-box {
+            background-color: white;
+            max-width: 500px;
+            margin: auto;
+            padding: 30px;
+            border: 1px solid #ddd;
+        }
+
+        .form-box h2 {
+            text-align: center;
+            color: #173b60;
+            margin-top: 0;
+        }
+
+        .form-box label {
+            display: block;
+            margin: 12px 0 5px;
+        }
+
+        .form-box input,
+        .form-box select {
+            width: 100%;
+            padding: 11px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        .form-box button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            background-color: #173b60;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        footer {
+            background-color: #173b60;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+.faq {
+    background-color: #f4f7fa;
+    padding: 60px 7%;
+}
+
+.faq-container {
+    max-width: 800px;
+    margin: 30px auto 0;
+}
+
+.faq details {
+    background-color: white;
+    margin-bottom: 12px;
+    padding: 18px 22px;
+    border: 1px solid #dce3ea;
+    border-radius: 4px;
+}
+
+.faq summary {
+    font-size: 16px;
+    font-weight: bold;
+    color: #173b60;
+    cursor: pointer;
+}
+
+.faq details p {
+    color: #555;
+    line-height: 1.6;
+    margin-top: 15px;
+}
+
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            nav a {
+                margin: 0 7px;
+                font-size: 13px;
+            }
+
+            .hero,
+            .why-ai {
+                flex-direction: column;
+            }
+
+            .hero-content,
+            .hero img,
+            .why-ai img {
+                width: 100%;
+            }
+
+            .hero h1 {
+                font-size: 30px;
+            }
+
+            .event-details {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .topic-container {
+                grid-template-columns: 1fr;
+            }
+
+            .agenda-row {
+                flex-direction: column;
+                gap: 5px;
+            }
+            
+        }
+    </style>
+</head>
+
+<body>
+
+    
+
+    <header>
+        <nav>
+            <div class="logo">manvian<span>.ai</span></div>
+
+            <div>
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#topics">Topics</a>
+                <a href="#agenda">Agenda</a>
+                <a href="#register">Register</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="hero" id="home">
+
+        <div class="hero-content">
+            <h1>AI-Powered Manufacturing: Transforming Industries for the Future</h1>
+
+            <p>
+                Join us to understand how Artificial Intelligence is
+                changing the manufacturing industry. Explore smart
+                factories, automation and new industrial technologies.
+            </p>
+
+            <a href="#register" class="button">Register Now</a>
+        </div>
+
+        <img src="https://images.unsplash.com/photo-1567789884554-0b844b597180?w=1000"
+             alt="Manufacturing industry">
+    </div>
+
+    <div class="event-details">
+
+        <div>
+            <h3>15 December 2026</h3>
+            <p>Webinar Date</p>
+        </div>
+
+        <div>
+            <h3>10:00 AM - 11:30 AM</h3>
+            <p>Time (IST)</p>
+        </div>
+
+        <div>
+            <h3>Online</h3>
+            <p>Event Mode</p>
+        </div>
+
+    </div>
+
+    <section class="about" id="about">
+
+        <div class="section-title">
+            <h2>About the Webinar</h2>
+        </div>
+
+        <p>
+            Artificial Intelligence is becoming an important part of
+            the manufacturing industry. It helps companies improve
+            production, reduce machine downtime and maintain product
+            quality. In this webinar, we will discuss how AI is used
+            in manufacturing and how it can help industries in the future.
+        </p>
+
+    </section>
+
+    <section class="topics" id="topics">
+
+        <div class="section-title">
+            <h2>Topics Covered</h2>
+            <p>Learn about the latest uses of AI in manufacturing.</p>
+        </div>
+
+        <div class="topic-container">
+
+            <div class="topic-box">
+                <h3>AI in Manufacturing</h3>
+                <p>Learn the basics of AI and its uses in industries.</p>
+            </div>
+
+            <div class="topic-box">
+                <h3>Smart Factories</h3>
+                <p>Understand how connected machines improve production.</p>
+            </div>
+
+            <div class="topic-box">
+                <h3>Industrial Automation</h3>
+                <p>Explore how automation makes manufacturing easier.</p>
+            </div>
+
+            <div class="topic-box">
+                <h3>Predictive Maintenance</h3>
+                <p>Identify machine problems before they cause breakdowns.</p>
+            </div>
+
+            <div class="topic-box">
+                <h3>Quality Inspection</h3>
+                <p>Understand how AI helps identify product defects.</p>
+            </div>
+
+            <div class="topic-box">
+                <h3>Future of Manufacturing</h3>
+                <p>Explore upcoming technologies in the manufacturing sector.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section>
+
+        <div class="why-ai">
+
+            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1000"
+                 alt="Industrial technology">
+
+            <div>
+                <h2>Why AI in Manufacturing?</h2>
+
+                <p>
+                    AI helps industries improve their work and manage
+                    production more effectively.
+                </p>
+
+                <ul>
+                    <li>Improves production efficiency</li>
+                    <li>Reduces machine downtime</li>
+                    <li>Improves product quality</li>
+                    <li>Reduces manual work</li>
+                    <li>Supports better decisions</li>
+                </ul>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="agenda" id="agenda">
+
+        <div class="section-title">
+            <h2>Webinar Agenda</h2>
+            <p>Schedule for the 90-minute session.</p>
+        </div>
+
+        <div class="agenda-row">
+            <strong>10:00 - 10:10 AM</strong>
+            <span>Welcome and Introduction</span>
+        </div>
+
+        <div class="agenda-row">
+            <strong>10:10 - 10:30 AM</strong>
+            <span>Introduction to AI in Manufacturing</span>
+        </div>
+
+        <div class="agenda-row">
+            <strong>10:30 - 10:55 AM</strong>
+            <span>Industrial AI Applications</span>
+        </div>
+
+        <div class="agenda-row">
+            <strong>10:55 - 11:15 AM</strong>
+            <span>Future Trends in Manufacturing</span>
+        </div>
+
+        <div class="agenda-row">
+            <strong>11:15 - 11:30 AM</strong>
+            <span>Questions and Answers</span>
+        </div>
+
+<section class="faq">
+    <div class="section-title">
+        <h2>Frequently Asked Questions</h2>
+        <p>Find answers to common questions about the webinar.</p>
+    </div>
+
+    <div class="faq-container">
+
+        <details>
+            <summary>Who can attend this webinar?</summary>
+            <p>This webinar is suitable for manufacturing professionals, students, engineers and anyone interested in AI technology.</p>
+        </details>
+
+        <details>
+            <summary>Is this webinar conducted online?</summary>
+            <p>Yes, this webinar will be conducted online. Registered participants will receive joining instructions.</p>
+        </details>
+
+        <details>
+            <summary>Do I need prior knowledge of AI?</summary>
+            <p>No. Basic knowledge of AI is helpful, but it is not required to attend this webinar.</p>
+        </details>
+
+        <details>
+            <summary>How can I join the webinar?</summary>
+            <p>Complete the registration form. Joining details will be shared with registered participants.</p>
+        </details>
+
+        <details>
+            <summary>Will I receive a webinar recording?</summary>
+            <p>Recording availability will be confirmed by the webinar organiser.</p>
+        </details>
+
+    </div>
+</section>
+
+
+    </section>
+    <section class="register" id="register">
+
+        <div class="form-box">
+
+            <h2>Register for the Webinar</h2>
+
+            <form id="myForm">
+
+                <label for="name">Full Name</label>
+                <input type="text" id="name" placeholder="Enter your name" required>
+
+                <label for="email">Email Address</label>
+                <input type="email" id="email" placeholder="Enter your email" required>
+
+                <label for="company">Company Name</label>
+                <input type="text" id="company" placeholder="Enter company name" required>
+
+                <label for="role">Your Role</label>
+                <select id="role" required>
+                    <option value="">Select your role</option>
+                    <option>Engineer</option>
+                    <option>Manager</option>
+                    <option>Business Owner</option>
+                    <option>Student</option>
+                    <option>Other</option>
+                </select>
+
+                <button type="submit">Submit Registration</button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+    <footer>
+        <p>© 2026 manvian.ai. All Rights Reserved.</p>
+        <p>AI-Powered Manufacturing Webinar</p>
+    </footer>
+
+    <script>
+        document.getElementById("myForm").addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            let name = document.getElementById("name").value;
+
+            alert("Thank you " + name + "! Your registration is submitted.");
+
+            this.reset();
+
+        });
+    </script>
+
+</body>
+</html>
